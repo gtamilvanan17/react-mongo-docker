@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  react-mongo-fe:
+    container_name: react-mongo-fe-cont
+    build: ./client
+    image: react-mongo-fe:v2
+    ports:
+      - "3000:3000"
+    volumes:
+      - react-mongo-fe-vol:/app
+
+  react-mongo-be:
+    container_name: react-mongo-be-cont
+    build: ./server
+    image: react-mongo-be:v2
+    ports:
+      - "5000:5000"
+    volumes:
+      - react-mongo-be-vol:/app
+
+volumes:
+  react-mongo-fe-vol:
+  react-mongo-be-vol:
